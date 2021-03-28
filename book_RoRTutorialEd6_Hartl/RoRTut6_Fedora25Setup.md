@@ -181,7 +181,7 @@ bundler (2.2.13, default: 1.17.2)
 
 Note: The default bundler version (1.17.2) can't be changed and
 shouldn't be removed. However in our case, this is not a problem
-as running *rails _6.1.3_ new APP_NAME* as per the RoRTut6 book
+as running *rails \_6.1.3\_ new APP_NAME* as per the RoRTut6 book
 causes the latest version of bundler (2.2.13) to be invoked.
 
 
