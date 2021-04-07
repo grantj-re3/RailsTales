@@ -1,4 +1,4 @@
-# Fix for: "FATAL: Listen error"
+# Fix for "FATAL: Listen error: unable to monitor directories for changes"
 
 I'm a Ruby on Rails newbie... but not a Linux newbie.
 
@@ -27,21 +27,13 @@ $ rails db:migrate
 ## The solution
 
 
-### Option 1
-
-Firstly, the link in the error message is broken. The new link appears
-to be:
-https://github.com/guard/listen/blob/master/README.md#increasing-the-amount-of-inotify-watchers
-
-- This solution assumes you have sudo or root access.
-- I understand it does not work in some environments such as Docker.
-
-I did not attempt this solution.
-
-
-### Option 2
+### Option 1: Disable Spring using a shell environment variable
 
 The solution below worked for me under Fedora Linux.
+
+This seems like a reasonable solution if you are following
+a rails tutorial or similar situation and you would rather
+not make your own alterations to the Gemfile.
 
 Firstly, stop any spring processes which are running.
 
@@ -78,4 +70,24 @@ $ . ~/.bash_profile       # short version (dot)
 ```
 
 Then celebrate!
+
+
+### Option 2: Increasing the amount of inotify watchers
+
+I did *not* attempt this solution.
+
+Firstly, the link in the error message is broken. The new link appears
+to be:
+https://github.com/guard/listen/blob/master/README.md#increasing-the-amount-of-inotify-watchers
+
+- This solution assumes you have sudo or root access.
+- I understand it does not work in some environments such as Docker.
+
+
+### Option 3: Remove Spring from your rails project
+
+I did *not* attempt this solution.
+
+Follow the instructions at
+https://github.com/rails/spring#removal
 
